@@ -1,8 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { donationOptionEntity } from './entities/donationOption.entity';
 import { Repository } from 'typeorm';
-import { donationOptionDto } from './dto/donationOptionDto';
+import { donationOptionDto } from './dto/create-donation-option.dto';
+import { donationOptionEntity } from './entities/donation-option.entity';
 
 @Injectable()
 export class DonationOptionsService {

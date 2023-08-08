@@ -1,11 +1,11 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Req, Request, UseGuards } from "@nestjs/common";
 import { Role } from "src/register-admin/role.enum";
 import { JwtAuthGuard } from "src/auth/guards/jwt.guard";
-import { RolesGuard } from "src/auth/guards/roles.guard";
 import { UpdateNewsDto } from "./dto/update-news-latter.dto";
 import { NewsService } from "./news-latter.service";
 import { CreateNewsDto } from "./dto/create-news-latter.dto";
-import { Roles } from "src/auth/decorators/roles.decorators";
+import { Roles } from "src/auth/decorator/roles.decorator";
+import { RolesGuard } from "src/auth/guards/roles.guards";
 
 
 @Controller('news')

@@ -3,10 +3,10 @@ import { WelcomeService } from './welcome.service';
 import { CreateWelcomeDto } from './dto/create-welcome.dto';
 import { UpdateWelcomeDto } from './dto/update-welcome.dto';
 import { JwtAuthGuard } from 'src/auth/guards/jwt.guard';
-import { RolesGuard } from 'src/auth/guards/roles.guard';
-import { Roles } from 'src/auth/decorators/roles.decorators';
 import { Role } from 'src/register-admin/role.enum';
 import { Welcome } from './entities/welcome.entity';
+import { RolesGuard } from 'src/auth/guards/roles.guards';
+import { Roles } from 'src/auth/decorator/roles.decorator';
 
 @Controller('welcome')
 export class WelcomeController {

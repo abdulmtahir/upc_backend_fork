@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { DonationOptionsController } from './donation-options.controller';
-import { DonationOptionsService } from './donation-options.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { donationOptionEntity } from './entities/donationOption.entity';
+import { donationOptionEntity } from './entities/donation-option.entity';
+import { DonationOptionsController } from './donation-option.controller';
+import { DonationOptionsService } from './donation-option.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([donationOptionEntity])],

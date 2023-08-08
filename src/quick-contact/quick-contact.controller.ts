@@ -2,17 +2,17 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@n
 import { QuickContactService } from './quick-contact.service';
 import { CreateQuickContactDto } from './dto/create-quick-contact.dto';
 import { UpdateQuickContactDto } from './dto/update-quick-contact.dto';
-import { RolesGuard } from 'src/auth/guards/roles.guard';
 import { Role } from 'src/register-admin/role.enum';
-import { JwtAuthGuard } from 'src/auth/guards/jwt.guard';
-import { Roles } from 'src/auth/decorators/roles.decorators';
+import { JwtAuthGuard } from 'src/auth/guards/jwt.guard';import { RolesGuard } from 'src/auth/guards/roles.guards';
+import { Roles } from 'src/auth/decorator/roles.decorator';
+;
 
 @Controller('quick-contact')
 export class QuickContactController {
   constructor(private readonly quickContactService: QuickContactService) {}
 
   @UseGuards(JwtAuthGuard, RolesGuard)
-  // @Roles(Role.Admin ,Role.Super)
+  @Roles(Role.Admin ,Role.Super)
   @Post()
   create(@Body() createQuickContactDto: CreateQuickContactDto) {
     return this.quickContactService.create(createQuickContactDto);

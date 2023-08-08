@@ -2,11 +2,11 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@n
 import { UpperNavService } from './upper-nav.service';
 import { CreateUpperNavDto } from './dto/create-upper-nav.dto';
 import { UpdateUpperNavDto } from './dto/update-upper-nav.dto';
-import { Roles } from 'src/auth/decorators/roles.decorators';
 import { Role } from 'src/register-admin/role.enum';
 import { JwtAuthGuard } from 'src/auth/guards/jwt.guard';
-import { RolesGuard } from 'src/auth/guards/roles.guard';
 import { UpperNav } from './entities/upper-nav.entity';
+import { RolesGuard } from 'src/auth/guards/roles.guards';
+import { Roles } from 'src/auth/decorator/roles.decorator';
 
 @Controller('upper-nav')
 export class UpperNavController {

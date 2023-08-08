@@ -1,12 +1,12 @@
 // donation.controller.ts
 import { Controller, Get, Post, Put, Delete, Body, Param, UseGuards } from '@nestjs/common';
-import { RolesGuard } from 'src/auth/guards/roles.guard';
 import { Role } from 'src/register-admin/role.enum';
 import { JwtAuthGuard } from 'src/auth/guards/jwt.guard';
-import { Roles } from 'src/auth/decorators/roles.decorators';
 import { DonationService } from './donations.service';
 import { DonationDto } from './dto/create-donation.dto';
 import { DonationEntity } from './entities/donation.entity';
+import { RolesGuard } from 'src/auth/guards/roles.guards';
+import { Roles } from 'src/auth/decorator/roles.decorator';
 
 @Controller('donations')
 export class DonationController {

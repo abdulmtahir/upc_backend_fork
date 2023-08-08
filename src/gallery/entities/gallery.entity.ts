@@ -23,7 +23,10 @@ export class Gallery {
      } )
     catelog: Catelog;
 
-    @Column()
+    @Column( {nullable: true} )
+    statement: string;
+
+    @Column( {nullable: false} )
     image: string;
 
     @CreateDateColumn({ type: 'timestamp'})

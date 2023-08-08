@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
-import { DonationOptionsService } from './donation-options.service';
-import { donationOptionDto } from './dto/donationOptionDto';
+import { DonationOptionsService } from './donation-option.service';
+import { donationOptionDto } from './dto/create-donation-option.dto';
 
 @Controller('donation-options')
 export class DonationOptionsController {

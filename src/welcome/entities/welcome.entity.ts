@@ -1,4 +1,3 @@
-import { type } from "os";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()

@@ -1,12 +1,11 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';;
 import { RegisterAdminService } from './register-admin.service';
-import { RolesGuard } from 'src/auth/guards/roles.guard';
 import { Role } from './role.enum';
-import { LocalAuthGuard } from 'src/auth/guards/local.guards';
 import { Admin } from './entities/register-admin.entity';
-import { Roles } from 'src/auth/decorators/roles.decorators';
 import { JwtAuthGuard } from 'src/auth/guards/jwt.guard';
 import { registerAdminDto } from './dto/create-register-admin.dto';
+import { RolesGuard } from 'src/auth/guards/roles.guards';
+import { Roles } from 'src/auth/decorator/roles.decorator';
 
 
 @Controller('register-admin')

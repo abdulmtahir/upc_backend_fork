@@ -1,12 +1,11 @@
 import { Body, Controller, Get, NotFoundException, Post, Param, Put, Delete, UseGuards } from '@nestjs/common';
 import { PostBlogService } from './post-blog.service';
 import { BlogService } from 'src/blog/blog.service';
-
 import { Role } from 'src/register-admin/role.enum';
 import { JwtAuthGuard } from 'src/auth/guards/jwt.guard';
-import { RolesGuard } from 'src/auth/guards/roles.guard';
 import { CreatePostBlogDto } from './dto/create-post-blog.dto';
-import { Roles } from 'src/auth/decorators/roles.decorators';
+import { RolesGuard } from 'src/auth/guards/roles.guards';
+import { Roles } from 'src/auth/decorator/roles.decorator';
 
 
 

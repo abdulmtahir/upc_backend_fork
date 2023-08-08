@@ -1,5 +1,5 @@
-import { Comment } from "src/comments/entities/comment.entity";
-import { Like} from "src/likes/entities/likes.entity";
+// import { Comment } from "src/comments/entities/comment.entity";
+// import { Like} from "src/likes/entities/likes.entity";
 import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 

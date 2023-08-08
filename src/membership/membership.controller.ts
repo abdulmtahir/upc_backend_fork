@@ -2,11 +2,11 @@
 import { Controller, Get, Post, Put, Delete, Body, Param, UseGuards } from '@nestjs/common';
 import { MembershipService } from './membership.service';
 import { Role } from 'src/register-admin/role.enum';
-import { RolesGuard } from 'src/auth/guards/roles.guard';
 import { MembershipEntity } from './entities/membership.entity';
 import { JwtAuthGuard } from 'src/auth/guards/jwt.guard';
-import { Roles } from 'src/auth/decorators/roles.decorators';
 import { CreateMembershipDto } from './dto/create-membership.dto';
+import { RolesGuard } from 'src/auth/guards/roles.guards';
+import { Roles } from 'src/auth/decorator/roles.decorator';
 
 
 @Controller('memberships') 

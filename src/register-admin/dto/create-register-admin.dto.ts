@@ -1,4 +1,4 @@
-import { IsString, IsEmail, IsPhoneNumber, IsStrongPassword, IsNumberString, IsEnum, IsAlphanumeric, MaxLength, MinLength, NotContains, IsNotEmpty, IsNumber } from "class-validator";
+import { IsString, IsEmail, IsEnum, IsAlphanumeric, MaxLength, MinLength, NotContains, IsNotEmpty, IsNumber } from "class-validator";
 import { Role } from '../role.enum'
 export class registerAdminDto{
 

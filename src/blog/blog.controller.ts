@@ -1,11 +1,11 @@
 import { Body, Controller, Post, Get, Param, Put, UseGuards, Delete } from '@nestjs/common';
 import { BlogService } from './blog.service';
-import { RolesGuard } from 'src/auth/guards/roles.guard';;
 import { Role } from 'src/register-admin/role.enum';
-import { Roles } from 'src/auth/decorators/roles.decorators';
 import { BlogEntity } from './entities/blog.entity';
 import { JwtAuthGuard } from 'src/auth/guards/jwt.guard';
 import { createBlogDto } from './dto/create-blog.dto';
+import { RolesGuard } from 'src/auth/guards/roles.guards';
+import { Roles } from 'src/auth/decorator/roles.decorator';
 
 @Controller('blog')
 export class BlogController {

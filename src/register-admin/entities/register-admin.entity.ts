@@ -50,6 +50,9 @@ export class Admin{
     blogId: Blog[];
 
     @OneToMany(() => Event, event => event.id)
+    eventId: Event[];
+
+    @OneToMany(() => Event, event => event.id)
     category: Event[];
 
     @BeforeInsert()

@@ -51,7 +51,7 @@ import { WelcomeModule } from './welcome/welcome.module';
           BlogEntity,
           Admin,
           QuickContact,
-          Blog,
+          Blog, 
           News,
           // Catelog,
           Event,

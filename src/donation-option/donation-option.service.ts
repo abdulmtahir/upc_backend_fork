@@ -1,14 +1,15 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { donationOptionDto } from './dto/create-donation-option.dto';
 import { donationOptionEntity } from './entities/donation-option.entity';
+import { CreateDonationOptionDto } from './dto/create-donation-option.dto';
+import { UpdateDonationOptionDto } from './dto/update-donation-option.dto';
 
 @Injectable()
 export class DonationOptionsService {
     constructor(@InjectRepository(donationOptionEntity) private readonly donationRepo: Repository<donationOptionEntity>){}
 
-    async createDonationOption(donationDto: donationOptionDto){
+    async createDonationOption(donationDto: CreateDonationOptionDto){
         const exist = await this.donationRepo.findOne({where:{
             amount: donationDto.amount
         }})
@@ -45,7 +46,7 @@ export class DonationOptionsService {
         }
     }
 
-    async update(id:number,amount :donationOptionDto){
+    async update(id:number,amount :UpdateDonationOptionDto){
         const updateAmount = await this.donationRepo.update(id, amount);
 
         if(updateAmount.affected >0){

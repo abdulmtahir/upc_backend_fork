@@ -1,8 +1,6 @@
 import { IsNotEmpty, IsNumber, IsNumberString, IsString } from "class-validator";
 
-
-
-export class donationOptionDto{
+export class CreateDonationOptionDto {
     @IsNumber()
     @IsNotEmpty()
     amount:number;

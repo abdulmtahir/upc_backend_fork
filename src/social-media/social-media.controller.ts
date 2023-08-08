@@ -3,10 +3,10 @@ import { SocialMediaService } from './social-media.service';
 import { CreateSocialMediaDto } from './dto/create-social-media.dto';
 import { UpdateSocialMediaDto } from './dto/update-social-media.dto';
 import { JwtAuthGuard } from 'src/auth/guards/jwt.guard';
-import { RolesGuard } from 'src/auth/guards/roles.guard';
-import { Roles } from 'src/auth/decorators/roles.decorators';
 import { Role } from 'src/register-admin/role.enum';
 import { SocialMedia } from './entities/social-media.entity';
+import { RolesGuard } from 'src/auth/guards/roles.guards';
+import { Roles } from 'src/auth/decorator/roles.decorator';
 
 @Controller('social-media')
 export class SocialMediaController {

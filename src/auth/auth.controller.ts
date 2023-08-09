@@ -4,7 +4,6 @@ import { Role } from 'src/register-admin/role.enum';
 import { Roles } from './decorator/roles.decorator';
 import { LocalAuthGuard } from './guards/local.guard';
 
-
 @Controller('auth')
 export class AuthController {
   constructor(private authService: AuthService) {}
@@ -15,4 +14,4 @@ export class AuthController {
   async login(@Request() req) {
     return this.authService.login(req);
   }
-} 
+}

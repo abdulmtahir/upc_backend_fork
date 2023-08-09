@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MembershipModule } from './membership/membership.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -35,7 +33,7 @@ import { DonationOptionsModule } from './donation-options/donation-options.modul
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true}),
+    ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => ({
@@ -51,19 +49,39 @@ import { DonationOptionsModule } from './donation-options/donation-options.modul
           BlogEntity,
           Admin,
           QuickContact,
-          Blog, 
+          Blog,
           News,
           // Catelog,
           Event,
         ],
         autoLoadEntities: true,
         synchronize: true,
-      }), 
+      }),
       inject: [ConfigService],
     }),
-    MembershipModule, AuthModule, CampaignModule, DonationOptionsModule, EventModule, GoalModule, HeroModule, ManifestoModule, SocialMediaModule, TeamMembersModule,UpperNavModule, VideoModule, WelcomeModule, QuickContactModule, GalleryModule, RegisterAdminModule,PostBlogModule, NewsModule, BlogModule, DonationModule, EventModule, 
+    MembershipModule,
+    AuthModule,
+    CampaignModule,
+    DonationOptionsModule,
+    EventModule,
+    GoalModule,
+    HeroModule,
+    ManifestoModule,
+    SocialMediaModule,
+    TeamMembersModule,
+    UpperNavModule,
+    VideoModule,
+    WelcomeModule,
+    QuickContactModule,
+    GalleryModule,
+    RegisterAdminModule,
+    PostBlogModule,
+    NewsModule,
+    BlogModule,
+    DonationModule,
+    EventModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

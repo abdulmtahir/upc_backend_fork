@@ -2,8 +2,6 @@ import { Column, CreateDateColumn, Entity, PrimaryColumn, PrimaryGeneratedColumn
 
 
 
-
-
 @Entity()
 export  class Team{
     

@@ -23,7 +23,6 @@ import { DonationModule } from './donations/donations.module';
 import { NewsModule } from './news-latter/news-latter.module';
 import { MembershipEntity } from './membership/entities/membership.entity';
 import { CampaignModule } from './campaign/campaign.module';
-import { DonationOptionsModule } from './donation-option/donation-option.module';
 import { GoalModule } from './goal/goal.module';
 import { HeroModule } from './hero/hero.module';
 import { ManifestoModule } from './manifesto/manifesto.module';
@@ -32,6 +31,7 @@ import { TeamMembersModule } from './team-members/team-members.module';
 import { UpperNavModule } from './upper-nav/upper-nav.module';
 import { VideoModule } from './video/video.module';
 import { WelcomeModule } from './welcome/welcome.module';
+import { DonationOptionsModule } from './donation-options/donation-options.module';
 
 @Module({
   imports: [

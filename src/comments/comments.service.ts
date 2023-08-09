@@ -9,10 +9,10 @@ export class CommentsService {
 
     constructor(@InjectRepository(Comment) private readonly commentRepo: Repository<Comment>,){}
 
-    async creatComment(id:number,comment: commentDto){
+    async creatComment(id:number,comment: string){
         const commentE = new Comment()
         commentE.news_id = id;
-        commentE.comment = comment.comment;
+        commentE.comment = comment;
         const createC = await this.commentRepo.create(commentE);
         return this.commentRepo.save(createC);
 

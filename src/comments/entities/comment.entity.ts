@@ -12,6 +12,9 @@ export class Comment{
     comment:string;
 
     @ManyToOne(()=> NewsEntity, (news)=> news.id)
+    news:NewsEntity;
+
+    @Column({nullable:false})
     news_id:number;
 
     //only a user will be allow to comment

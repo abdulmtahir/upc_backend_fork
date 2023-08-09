@@ -14,14 +14,14 @@ export class NewsController {
     @Post()
     @UseInterceptors(FileInterceptor('image', {
         storage: diskStorage({
-            destination: 'images',
+            destination: 'images/news-images',
             filename: editeFileName,
         }),
         fileFilter: imageFileFilter,
     }), )
     async CreateNewsDto(@UploadedFile()file:Express.Multer.File, @Body() newsDto: newsDto ){
 
-        this.newsService.createNews(file.filename, newsDto);        
+        return this.newsService.createNews(file.filename, newsDto);        
     }
 
     @Get(':id')

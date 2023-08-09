@@ -9,10 +9,14 @@ export class Like{
     id:number;
 
     @Column({nullable:true})
-    user_id:number;
+    user_id:string;
 
+    
     @ManyToOne(()=> NewsEntity, (news) => news.id)
-    news_id: number;
+    news: NewsEntity;
+
+    @Column({nullable:false})
+    news_id:number;
 
     //only a user will be allow to comment
    // @ManyToMany(()=> User, (user)=> user.id)

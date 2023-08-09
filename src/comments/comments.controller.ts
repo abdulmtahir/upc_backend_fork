@@ -1,4 +1,4 @@
-import { Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { CommentsService } from './comments.service';
 import { commentDto } from './dto/commentDto';
 
@@ -7,7 +7,7 @@ export class CommentsController {
     constructor(private readonly commentService: CommentsService){}
 
     @Post(':id')
-    createComment(@Param('id') id:number,comment: commentDto){
+    createComment(@Param('id') id:number,@Body('comment') comment: string){
         return this.commentService.creatComment(id, comment)
     }
 

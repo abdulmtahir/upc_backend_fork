@@ -10,10 +10,8 @@ export class DonationOptionsController {
 
     @Post()
     createDonatioOption(@Body() amount: donationOptionDto){
-        
-         const trimAmount = (amount)=>  {return amount.replace(/\s/g, '');} 
           
-        return this.donationService.createDonationOption(trimAmount(amount))
+        return this.donationService.createDonationOption(amount)
     }
 
     @Get(':id')

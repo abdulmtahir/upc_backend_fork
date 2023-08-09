@@ -1,4 +1,13 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';;
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+  UseGuards,
+} from '@nestjs/common';
 import { RegisterAdminService } from './register-admin.service';
 import { Role } from './role.enum';
 import { Admin } from './entities/register-admin.entity';
@@ -7,17 +16,15 @@ import { registerAdminDto } from './dto/create-register-admin.dto';
 import { RolesGuard } from 'src/auth/guards/roles.guards';
 import { Roles } from 'src/auth/decorator/roles.decorator';
 
-
 @Controller('register-admin')
 export class RegisterAdminController {
-
-  constructor(private readonly registerAdminService: RegisterAdminService){}
+  constructor(private readonly registerAdminService: RegisterAdminService) {}
 
   @UseGuards(JwtAuthGuard, RolesGuard)
-  // @Roles(Role.Super)  
+  @Roles(Role.Super)
   @Post()
-  registerAdmin(@Body() registerAdminDto: registerAdminDto){
-      return this.registerAdminService.registerAdmin(registerAdminDto);
+  registerAdmin(@Body() registerAdminDto: registerAdminDto) {
+    return this.registerAdminService.registerAdmin(registerAdminDto);
   }
 
   @UseGuards(JwtAuthGuard, RolesGuard)
@@ -26,9 +33,9 @@ export class RegisterAdminController {
   getAllAdmins(): Promise<Admin[]> {
     return this.registerAdminService.getAllAdmin();
   }
- 
+
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles(Role.Super) 
+  @Roles(Role.Super)
   @Get(':id')
   getAdminById(@Param('id') id: number): Promise<Admin> {
     return this.registerAdminService.getAdminById(id);
@@ -37,7 +44,10 @@ export class RegisterAdminController {
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(Role.Super)
   @Put(':id')
-  updateAdmin(@Param('id') id: number, @Body() registerAdminDto: registerAdminDto): Promise<Admin> {
+  updateAdmin(
+    @Param('id') id: number,
+    @Body() registerAdminDto: registerAdminDto,
+  ): Promise<Admin> {
     return this.registerAdminService.updateAmin(id, registerAdminDto);
   }
 
@@ -48,4 +58,3 @@ export class RegisterAdminController {
     return this.registerAdminService.deleteAdmin(id);
   }
 }
-    

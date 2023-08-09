@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MembershipModule } from './membership/membership.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -63,7 +61,7 @@ import { DonationOptionsModule } from './donation-options/donation-options.modul
     }),
     MembershipModule, AuthModule, CampaignModule, DonationOptionsModule, EventModule, GoalModule, HeroModule, ManifestoModule, SocialMediaModule, TeamMembersModule,UpperNavModule, VideoModule, WelcomeModule, QuickContactModule, GalleryModule, RegisterAdminModule,PostBlogModule, NewsModule, BlogModule, DonationModule, EventModule, 
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

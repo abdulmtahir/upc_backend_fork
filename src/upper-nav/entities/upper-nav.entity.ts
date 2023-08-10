@@ -13,5 +13,5 @@ export class UpperNav {
     email: string;
 
     @Column({})
-    phone_number: number;
+    phone_number: string;
 }

@@ -1,4 +1,4 @@
-import { IsMimeType, IsString, IsUrl } from "class-validator";
+import { IsMimeType, IsString } from "class-validator";
 
 export class CreateHeroDto {
 
@@ -12,11 +12,16 @@ export class CreateHeroDto {
     @IsString()
     image: string;
 
-    @IsUrl()
     @IsString()
-    url:  string;
+    button1_url:  string;
 
     @IsString()
-    url_title: string;
+    button1_title: string;
+
+    @IsString()
+    button2_url:  string;
+
+    @IsString()
+    button2_title: string;
 
 }

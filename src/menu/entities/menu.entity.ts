@@ -1,17 +1,14 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
-export class UpperNav {
+export class Menu {
 
     @PrimaryGeneratedColumn({ type: 'bigint'})
     id: number;
 
-    @Column({})
-    logo_image: string;
+    @Column({ nullable: false})
+    title: string;
 
-    @Column({})
-    email: string;
-
-    @Column({})
-    phone_number: string;
+    @Column({ nullable: false})
+    url: string;
 }

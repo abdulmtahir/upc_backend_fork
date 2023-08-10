@@ -17,7 +17,7 @@ export class CreateUpperNavDto {
     // @IsNotEmpty()
     // email_image: string;
 
-    @IsNumber()
+    @IsString()
     @IsNotEmpty()
-    phone_number: number;
+    phone_number: string;
 }

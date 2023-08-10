@@ -16,8 +16,14 @@ export class Hero {
     image: string;
 
     @Column({})
-    url: string;
+    button1_url: string;
 
     @Column({})
-    url_title: string;
+    button1_title: string;
+
+    @Column({})
+    button2_url: string;
+
+    @Column({})
+    button2_title: string;
 }

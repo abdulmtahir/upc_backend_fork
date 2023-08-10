@@ -8,6 +8,6 @@ import { Admin } from './entities/register-admin.entity';
   imports: [TypeOrmModule.forFeature([Admin])],
   controllers: [RegisterAdminController],
   providers: [RegisterAdminService],
-  exports: [RegisterAdminService]
+  exports: [RegisterAdminService],
 })
 export class RegisterAdminModule {}

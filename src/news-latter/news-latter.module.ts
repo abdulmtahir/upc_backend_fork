@@ -10,4 +10,4 @@ import { News } from './entities/news-latter.entity';
   imports: [TypeOrmModule.forFeature([News])],
   exports: [NewsService],
 })
-export class NewsModule {}
+export class NewsLetterModule {}

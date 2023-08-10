@@ -30,6 +30,7 @@ import { UpperNavModule } from './upper-nav/upper-nav.module';
 import { VideoModule } from './video/video.module';
 import { WelcomeModule } from './welcome/welcome.module';
 import { DonationOptionsModule } from './donation-options/donation-options.module';
+import { MissionModule } from './mission/mission.module';
 
 @Module({
   imports: [
@@ -80,6 +81,7 @@ import { DonationOptionsModule } from './donation-options/donation-options.modul
     BlogModule,
     DonationModule,
     EventModule,
+    MissionModule,
   ],
   controllers: [],
   providers: [],

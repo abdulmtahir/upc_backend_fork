@@ -9,7 +9,7 @@ async function bootstrap() {
   const registerAdminService = app.get(RegisterAdminService);
   await registerAdminService.createDefaultSuperAdmin();
 
-  await app.listen(3001);
+  await app.listen(3000);
 }
 
 bootstrap();

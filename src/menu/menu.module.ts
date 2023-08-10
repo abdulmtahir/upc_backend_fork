@@ -9,4 +9,5 @@ import { Menu } from './entities/menu.entity';
   controllers: [MenuController],
   providers: [MenuService]
 })
+  
 export class MenuModule {}

@@ -1,4 +1,13 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Put } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  UseGuards,
+} from '@nestjs/common';
 import { MissionService } from './mission.service';
 import { CreateMissionDto } from './dto/create-mission.dto';
 import { UpdateMissionDto } from './dto/update-mission.dto';
@@ -31,8 +40,11 @@ export class MissionController {
 
   @UseGuards(JwtAuthGuard, RolesGuard)
   // @Roles(Role.Admin, Role.Super)
-  @Put(':id')
-  updateDonation(@Param('id') id: number, @Body() missionDto: UpdateMissionDto): Promise<Mission> {
+  @Patch(':id')
+  updateDonation(
+    @Param('id') id: number,
+    @Body() missionDto: UpdateMissionDto,
+  ): Promise<Mission> {
     return this.missionService.updateMission(id, missionDto);
   }
 

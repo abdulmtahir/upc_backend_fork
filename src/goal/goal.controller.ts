@@ -5,7 +5,7 @@ import {
   Get,
   Param,
   Post,
-  Put,
+  Patch,
   UseGuards,
 } from '@nestjs/common';
 import { GoalService } from './goal.service';

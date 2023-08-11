@@ -7,46 +7,46 @@ import { UpdateGoalDto } from './dto/update-goal.dto';
 
 @Injectable()
 export class GoalService {
-    constructor(
-        @InjectRepository(Goal)
-        private readonly goalRepository: Repository<Goal>,
-    ) {}
+  constructor(
+    @InjectRepository(Goal)
+    private readonly goalRepository: Repository<Goal>,
+  ) {}
 
-    async createGoal(createGoalDto: CreateGoalDto): Promise<Goal> {
-        const newGoal = this.goalRepository.create(createGoalDto);
-        return this.goalRepository.save(newGoal)
-    }
+  async createGoal(createGoalDto: CreateGoalDto): Promise<Goal> {
+    const newGoal = this.goalRepository.create(createGoalDto);
+    return this.goalRepository.save(newGoal);
+  }
 
-    async getAllGoals(): Promise<Goal[]> {
-    const goals = await  this.goalRepository.find();
+  async getAllGoals(): Promise<Goal[]> {
+    const goals = await this.goalRepository.find();
     try {
-        return goals;
+      return goals;
     } catch (error) {
-        throw new NotFoundException('The donations list is empty for now.');
+      throw new NotFoundException('The donations list is empty for now.');
     }
-    }
+  }
 
-    async getGoalById(id: number): Promise<Goal> {
-    const goal = await this.goalRepository.findOne({ where: {id}});
+  async getGoalById(id: number): Promise<Goal> {
+    const goal = await this.goalRepository.findOne({ where: { id } });
     try {
-        return goal;
+      return goal;
     } catch (error) {
-        throw new NotFoundException('Result not found!!.');
+      throw new NotFoundException('Result not found!!.');
     }
-    }
+  }
 
-    async updateGoal(id: number, updateGoalDto: UpdateGoalDto): Promise<Goal> {
-    const goalToUpdate = await this.goalRepository.findOne({ where: {id}});
+  async updateGoal(id: number, updateGoalDto: UpdateGoalDto): Promise<Goal> {
+    const goalToUpdate = await this.goalRepository.findOne({ where: { id } });
     if (!goalToUpdate) {
-        throw new Error('Donation not found.');
+      throw new Error('Donation not found.');
     }
 
     // Update the fields from the DTO
     Object.assign(goalToUpdate, updateGoalDto);
     return this.goalRepository.save(goalToUpdate);
-    }
+  }
 
-    async deleteGoal(id: number): Promise<void> {
+  async deleteGoal(id: number): Promise<void> {
     await this.goalRepository.delete(id);
-    }
+  }
 }

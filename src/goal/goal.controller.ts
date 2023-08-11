@@ -1,19 +1,28 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+  UseGuards,
+} from '@nestjs/common';
 import { GoalService } from './goal.service';
 import { Goal } from './entity/goal-entity';
 import { CreateGoalDto } from './dto/create-goal.dto';
 import { UpdateGoalDto } from './dto/update-goal.dto';
-import { JwtAuthGuard } from 'src/auth/guards/jwt.guard';;
+import { JwtAuthGuard } from 'src/auth/guards/jwt.guard';
 import { Role } from 'src/register-admin/role.enum';
 import { RolesGuard } from 'src/auth/guards/roles.guards';
 import { Roles } from 'src/auth/decorator/roles.decorator';
 
 @Controller('goal')
 export class GoalController {
-    constructor(private readonly goalService: GoalService) {}
+  constructor(private readonly goalService: GoalService) {}
 
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles(Role.Super, Role.Admin)  
+  @Roles(Role.Super, Role.Admin)
   @Post()
   createGoal(@Body() createGoalDto: CreateGoalDto): Promise<Goal> {
     return this.goalService.createGoal(createGoalDto);
@@ -31,8 +40,11 @@ export class GoalController {
 
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(Role.Admin, Role.Super)
-  @Put(':id')
-  updateGoal(@Param('id') id: number, @Body() updateGoalDto: UpdateGoalDto): Promise<Goal> {
+  @Patch(':id')
+  updateGoal(
+    @Param('id') id: number,
+    @Body() updateGoalDto: UpdateGoalDto,
+  ): Promise<Goal> {
     return this.goalService.updateGoal(id, updateGoalDto);
   }
 

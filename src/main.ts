@@ -9,6 +9,9 @@ async function bootstrap() {
   const registerAdminService = app.get(RegisterAdminService);
   await registerAdminService.createDefaultSuperAdmin();
 
+  // Enable CORS for the application
+  app.enableCors();
+
   await app.listen(3000);
 }
 

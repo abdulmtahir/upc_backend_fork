@@ -9,6 +9,7 @@ import { diskStorage } from 'multer';
 @Controller('team-members')
 export class TeamMembersController {
 
+    private Destination: string = "images/team/"
     constructor(private readonly TeamService: TeamMembersService){}
 
 
@@ -21,7 +22,8 @@ export class TeamMembersController {
         fileFilter: imageFileFilter,
     }), )
     async createTeam(@UploadedFile() file:Express.Multer.File, @Body() teamMembersDto:teamMembersDto){ 
-        return this.TeamService.createTeam(file.filename, teamMembersDto);
+        // return this.TeamService.createTeam(file.filename, teamMembersDto);
+        return this.TeamService.createTeam(this.Destination+file.filename, teamMembersDto);
     }
 
 

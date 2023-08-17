@@ -5,11 +5,9 @@ import { GoalController } from './goal.controller';
 import { GoalService } from './goal.service';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([Goal])],
-    controllers: [GoalController],
-    providers: [GoalService],
-    exports: [GoalService]
+  imports: [TypeOrmModule.forFeature([Goal])],
+  controllers: [GoalController],
+  providers: [GoalService],
+  exports: [GoalService],
 })
-export class GoalModule {
-    
-}
+export class GoalModule {}

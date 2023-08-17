@@ -1,4 +1,13 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Put } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  UseGuards,
+} from '@nestjs/common';
 import { MissionService } from './mission.service';
 import { CreateMissionDto } from './dto/create-mission.dto';
 import { UpdateMissionDto } from './dto/update-mission.dto';
@@ -10,19 +19,21 @@ import { Mission } from './entities/mission.entity';
 export class MissionController {
   constructor(private readonly missionService: MissionService) {}
 
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  // @Roles(Role.Admin, Role.Super)
   @Post()
   createDonation(@Body() missionDto: CreateMissionDto): Promise<Mission> {
     return this.missionService.createMission(missionDto);
   }
 
-  @UseGuards(JwtAuthGuard, RolesGuard)
+  // @UseGuards(JwtAuthGuard, RolesGuard)
   // @Roles(Role.Admin, Role.Super)
   @Get()
   getAllDonations(): Promise<Mission[]> {
     return this.missionService.getAllMission();
   }
 
-  @UseGuards(JwtAuthGuard, RolesGuard)
+  // @UseGuards(JwtAuthGuard, RolesGuard)
   // @Roles(Role.Admin, Role.Super)
   @Get(':id')
   getDonationById(@Param('id') id: number): Promise<Mission> {
@@ -31,8 +42,11 @@ export class MissionController {
 
   @UseGuards(JwtAuthGuard, RolesGuard)
   // @Roles(Role.Admin, Role.Super)
-  @Put(':id')
-  updateDonation(@Param('id') id: number, @Body() missionDto: UpdateMissionDto): Promise<Mission> {
+  @Patch(':id')
+  updateDonation(
+    @Param('id') id: number,
+    @Body() missionDto: UpdateMissionDto,
+  ): Promise<Mission> {
     return this.missionService.updateMission(id, missionDto);
   }
 

@@ -7,11 +7,10 @@ import { Event } from './entities/event.entity';
 
 @Injectable()
 export class EventService {
-
   constructor(
     @InjectRepository(Event)
-    private eventRepository: Repository<Event>
-  ){}
+    private eventRepository: Repository<Event>,
+  ) {}
 
   create(createEventDto: CreateEventDto) {
     return this.eventRepository.save(createEventDto);
@@ -21,15 +20,15 @@ export class EventService {
     return this.eventRepository.find();
   }
 
-  update( eventId: number, updateEventDto: UpdateEventDto){
-      return this.eventRepository.update(eventId, updateEventDto)
+  update(eventId: number, updateEventDto: UpdateEventDto) {
+    return this.eventRepository.update(eventId, updateEventDto);
   }
 
-  show(eventId: number){
-      return this.eventRepository.findOne({where: {id: eventId}});
+  show(eventId: number) {
+    return this.eventRepository.findOne({ where: { id: eventId } });
   }
 
-  delete(eventId: number){
-      return this.eventRepository.delete(eventId);
+  delete(eventId: number) {
+    return this.eventRepository.delete(eventId);
   }
 }

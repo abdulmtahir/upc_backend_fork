@@ -18,25 +18,25 @@ export class MenuService {
   }
 
   async getMenu(): Promise<Menu[]> {
-    const menus = await  this.menuRepository.find();
+    const menus = await this.menuRepository.find();
     try {
-        return menus;
+      return menus;
     } catch (error) {
-        throw new NotFoundException('The menus list is empty for now.');
+      throw new NotFoundException('The menus list is empty for now.');
     }
   }
 
   async getMenuById(id: number): Promise<Menu> {
-    const menu = await this.menuRepository.findOne({ where: {id}});
+    const menu = await this.menuRepository.findOne({ where: { id } });
     try {
-        return menu;
+      return menu;
     } catch (error) {
-        throw new NotFoundException('Result not found!!.');
+      throw new NotFoundException('Result not found!!.');
     }
   }
 
   async updateMenu(id: number, menuDto: UpdateMenuDto): Promise<Menu> {
-    const menuToUpdate = await this.menuRepository.findOne({ where: {id}});
+    const menuToUpdate = await this.menuRepository.findOne({ where: { id } });
     if (!menuToUpdate) {
       throw new Error('Donation not found.');
     }

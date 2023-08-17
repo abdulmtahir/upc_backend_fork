@@ -4,6 +4,14 @@ import { IsNotEmpty, IsString } from "class-validator";
 export class teamMembersDto{
     @IsString()
     @IsNotEmpty()
+    statement:string;
+
+    @IsString()
+    @IsNotEmpty()
+    image:string;
+
+    @IsString()
+    @IsNotEmpty()
     name:string;
 
     @IsString()
@@ -12,12 +20,6 @@ export class teamMembersDto{
 
     @IsString()
     @IsNotEmpty()
-    position:string;
+    bio:string;
 
-    @IsString()
-    @IsNotEmpty()
-    Bio:string;
-
-    @IsString()
-    image:string;
 }

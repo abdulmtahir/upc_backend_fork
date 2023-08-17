@@ -1,14 +1,13 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Menu {
+  @PrimaryGeneratedColumn({ type: 'bigint' })
+  id: number;
 
-    @PrimaryGeneratedColumn({ type: 'bigint'})
-    id: number;
+  @Column({ nullable: false })
+  title: string;
 
-    @Column({ nullable: false})
-    title: string;
-
-    @Column({ nullable: false})
-    url: string;
+  @Column({ nullable: false })
+  url: string;
 }

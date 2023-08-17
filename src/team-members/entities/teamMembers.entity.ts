@@ -9,16 +9,19 @@ export  class Team{
     id:number;
 
     @Column({nullable:false})
-    Title:string;
-
-    @Column({nullable:false})
-    position:string;
-    
-    @Column({nullable:true})
-    bio:string;
+    statement:string;
 
     @Column({nullable:false})
     image:string;
+
+    @Column({nullable:false})
+    name:string;
+
+    @Column({nullable:false})
+    Title:string;
+    
+    @Column({nullable:true})
+    bio:string;
 
     @CreateDateColumn({type:'timestamp'})
     created_at: Date;

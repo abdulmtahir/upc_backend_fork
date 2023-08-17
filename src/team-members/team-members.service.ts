@@ -13,10 +13,12 @@ export class TeamMembersService{
 
    async createTeam(image_name: string, teamDtos: teamMembersDto){
         const teamM = new Team();
+        teamM.statement = teamDtos.statement;
         teamM.image = image_name;
+        teamM.name = teamDtos.name;
         teamM.Title = teamDtos.Title;
-        teamM.bio = teamDtos.Bio;
-        teamM.position = teamDtos.position;
+        teamM.bio = teamDtos.bio;
+        // teamM.position = teamDtos.position;
         const team =  this.teamRepo.create(teamM);
         return this.teamRepo.save(team);
     }
@@ -45,8 +47,8 @@ export class TeamMembersService{
         const teamM = new Team();
         teamM.image = image_name;
         teamM.Title = teamDtos.Title;
-        teamM.bio = teamDtos.Bio;
-        teamM.position = teamDtos.position;
+        teamM.bio = teamDtos.bio;
+        // teamM.position = teamDtos.position;
         const updateTeam = await this.teamRepo.update(id, teamM);
         if(updateTeam.affected > 0){
             return ('Update successfully');

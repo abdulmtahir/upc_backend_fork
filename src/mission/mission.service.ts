@@ -18,25 +18,30 @@ export class MissionService {
   }
 
   async getAllMission(): Promise<Mission[]> {
-    const missions = await  this.missionRepository.find();
+    const missions = await this.missionRepository.find();
     try {
-        return missions;
+      return missions;
     } catch (error) {
-        throw new NotFoundException('The missions list is empty for now.');
+      throw new NotFoundException('The missions list is empty for now.');
     }
   }
 
   async getMissionById(id: number): Promise<Mission> {
-    const mission = await this.missionRepository.findOne({ where: {id}});
+    const mission = await this.missionRepository.findOne({ where: { id } });
     try {
-        return mission;
+      return mission;
     } catch (error) {
-        throw new NotFoundException('Result not found!!.');
+      throw new NotFoundException('Result not found!!.');
     }
   }
 
-  async updateMission(id: number, missionDto: UpdateMissionDto): Promise<Mission> {
-    const missionToUpdate = await this.missionRepository.findOne({ where: {id}});
+  async updateMission(
+    id: number,
+    missionDto: UpdateMissionDto,
+  ): Promise<Mission> {
+    const missionToUpdate = await this.missionRepository.findOne({
+      where: { id },
+    });
     if (!missionToUpdate) {
       throw new Error('Donation not found.');
     }

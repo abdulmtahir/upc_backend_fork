@@ -8,37 +8,38 @@ import { Repository } from 'typeorm';
 @Injectable()
 export class CampaignService {
   constructor(
-    @InjectRepository(Campaign) 
-    private readonly campaignRepo: Repository<Campaign>
-  ){}
+    @InjectRepository(Campaign)
+    private readonly campaignRepo: Repository<Campaign>,
+  ) {}
 
   create(createCampaignDto: CreateCampaignDto): Promise<Campaign> {
     return this.campaignRepo.save(createCampaignDto);
   }
 
   findAll(): Promise<Campaign[]> {
-    const campaigns =  this.campaignRepo.find();
+    const campaigns = this.campaignRepo.find();
     try {
       return campaigns;
-  } catch (error) {
+    } catch (error) {
       throw new NotFoundException('The campaigns list is empty for now.');
-  }
-
+    }
   }
 
   findOne(id: number): Promise<Campaign> {
-    const campaign = this.campaignRepo.findOne({where:{id}});
+    const campaign = this.campaignRepo.findOne({ where: { id } });
     try {
       return campaign;
-  } catch (error) {
+    } catch (error) {
       throw new NotFoundException('The donation is not found.');
+    }
   }
 
-  }
-
-  async update(id: number, updateCampaignDto: UpdateCampaignDto): Promise<Campaign> {
+  async update(
+    id: number,
+    updateCampaignDto: UpdateCampaignDto,
+  ): Promise<Campaign> {
     //return this.campaignRepo.update(id,updateCampaignDto);
-    const updateCampaign = await this.campaignRepo.findOne({ where: {id}});
+    const updateCampaign = await this.campaignRepo.findOne({ where: { id } });
     if (!updateCampaign) {
       throw new Error('Donation not found.');
     }
@@ -48,7 +49,7 @@ export class CampaignService {
     return this.campaignRepo.save(updateCampaign);
   }
 
-  remove(id: number){
-  return  this.campaignRepo.delete(id);
+  remove(id: number) {
+    return this.campaignRepo.delete(id);
   }
 }

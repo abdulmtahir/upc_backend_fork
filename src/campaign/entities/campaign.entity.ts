@@ -1,13 +1,13 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-Entity()
+@Entity()
 export class Campaign {
-    @PrimaryGeneratedColumn()
-    id: number;
+  @PrimaryGeneratedColumn({ type: 'bigint' })
+  id: number;
 
-    @Column( {nullable: false} )
-    image: string;
+  @Column({ nullable: false })
+  image: string;
 
-    @Column( {nullable: false} )
-    title: string;
+  @Column({ nullable: false })
+  title: string;
 }

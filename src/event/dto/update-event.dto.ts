@@ -21,5 +21,9 @@ export class UpdateEventDto extends PartialType(CreateEventDto) {
 
   @IsString()
   @IsNotEmpty()
+  eventTime: string;
+
+  @IsString()
+  @IsNotEmpty()
   location: string;
 }

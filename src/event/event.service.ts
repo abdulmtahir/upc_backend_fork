@@ -12,7 +12,7 @@ export class EventService {
     private eventRepository: Repository<Event>,
   ) {}
 
-  create(createEventDto: CreateEventDto) {
+  create(createEventDto: CreateEventDto): Promise<Event> {
     return this.eventRepository.save(createEventDto);
   }
 

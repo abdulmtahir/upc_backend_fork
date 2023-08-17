@@ -11,10 +11,10 @@ export class TeamMembersService{
 
     constructor(@InjectRepository(Team) private readonly teamRepo: Repository<Team>,){}
 
-   async createTeam(image_name: string, teamDtos: teamMembersDto){
+   async createTeam(teamDtos: teamMembersDto): Promise<Team>{
         const teamM = new Team();
         teamM.statement = teamDtos.statement;
-        teamM.image = image_name;
+        teamM.image = teamDtos.image;
         teamM.name = teamDtos.name;
         teamM.Title = teamDtos.Title;
         teamM.bio = teamDtos.bio;
@@ -43,9 +43,11 @@ export class TeamMembersService{
         }
     }
 
-    async updateTeam(image_name:string, id:number, teamDtos: teamMembersDto){
+    async updateTeam(id:number, teamDtos: teamMembersDto){
         const teamM = new Team();
-        teamM.image = image_name;
+        teamM.statement = teamDtos.statement;
+        teamM.image = teamDtos.image;
+        teamM.name = teamDtos.name;
         teamM.Title = teamDtos.Title;
         teamM.bio = teamDtos.bio;
         // teamM.position = teamDtos.position;

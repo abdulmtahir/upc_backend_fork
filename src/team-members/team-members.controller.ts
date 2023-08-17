@@ -9,21 +9,21 @@ import { diskStorage } from 'multer';
 @Controller('team-members')
 export class TeamMembersController {
 
-    private Destination: string = "images/team/"
+    // private Destination: string = "images/team/"
     constructor(private readonly TeamService: TeamMembersService){}
 
 
     @Post()
-    @UseInterceptors(FileInterceptor('image', {
-        storage: diskStorage({
-            destination: 'images/team',
-            filename: editeFileName,
-        }),
-        fileFilter: imageFileFilter,
-    }), )
-    async createTeam(@UploadedFile() file:Express.Multer.File, @Body() teamMembersDto:teamMembersDto){ 
-        // return this.TeamService.createTeam(file.filename, teamMembersDto);
-        return this.TeamService.createTeam(this.Destination+file.filename, teamMembersDto);
+    // @UseInterceptors(FileInterceptor('image', {
+    //     storage: diskStorage({
+    //         destination: 'images/team',
+    //         filename: editeFileName,
+    //     }),
+    //     fileFilter: imageFileFilter,
+    // }), )
+    async createTeam(@Body() teamMembersDto:teamMembersDto){ 
+        return this.TeamService.createTeam(teamMembersDto);
+        // return this.TeamService.createTeam(this.Destination+file.filename, teamMembersDto);
     }
 
 
@@ -40,15 +40,15 @@ export class TeamMembersController {
     }
 
     @Put(':id')
-    @UseInterceptors(FileInterceptor('image', {
-        storage: diskStorage({
-            destination: 'images/team',
-            filename: editeFileName,
-        }),
-        fileFilter: imageFileFilter,
-    }), )
-    updateTeam(@UploadedFile() file: Express.Multer.File,@Param('id') id:number, teamDtos: teamMembersDto){
-        return this.TeamService.updateTeam(file.filename, id, teamDtos);
+    // @UseInterceptors(FileInterceptor('image', {
+    //     storage: diskStorage({
+    //         destination: 'images/team',
+    //         filename: editeFileName,
+    //     }),
+    //     fileFilter: imageFileFilter,
+    // }), )
+    updateTeam(@Param('id') id:number, teamDtos: teamMembersDto){
+        return this.TeamService.updateTeam(id, teamDtos);
         
     }
 

@@ -13,6 +13,7 @@ export class NewsService {
     async createNews(newsDto:newsDto){
 
         const newsE = new NewsEntity()
+        newsE.statement = newsDto.statement;
         newsE.image = newsDto.image;
         newsE.article = newsDto.article;
         newsE.headline = newsDto.headline;
@@ -35,6 +36,7 @@ export class NewsService {
 
     async updateNews(id:number,  newsDto:newsDto){
         const newsE = new NewsEntity()
+        newsE.statement = newsDto.statement;
         newsE.image = newsDto.image,
         newsE.article = newsDto.article;
         newsE.headline = newsDto.headline;

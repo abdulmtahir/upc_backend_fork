@@ -38,7 +38,7 @@ export class GoalService {
   async updateGoal(id: number, updateGoalDto: UpdateGoalDto): Promise<Goal> {
     const goalToUpdate = await this.goalRepository.findOne({ where: { id } });
     if (!goalToUpdate) {
-      throw new Error('Donation not found.');
+      throw new Error('Goal not found.');
     }
 
     // Update the fields from the DTO

@@ -1,6 +1,10 @@
 import { IsNotEmpty, IsString } from "class-validator";
 
 export class newsDto{
+
+    @IsString()
+    statement:string;
+
     @IsString()
     @IsNotEmpty()
     headline:string;

@@ -26,6 +26,8 @@ import { VideoModule } from './video/video.module';
 import { WelcomeModule } from './welcome/welcome.module';
 import { DonationOptionsModule } from './donation-options/donation-options.module';
 import { MissionModule } from './mission/mission.module';
+import { PromisesModule } from './about-us/promises.module';
+import { MotivationModule } from './motivation/motivation.module';
 
 @Module({
   imports: [
@@ -70,6 +72,8 @@ import { MissionModule } from './mission/mission.module';
     VideoModule,
     WelcomeModule,
     DonationOptionsModule,
+    PromisesModule,
+    MotivationModule,
   ],
   controllers: [],
   providers: [],

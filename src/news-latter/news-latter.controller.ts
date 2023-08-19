@@ -8,7 +8,7 @@ import { Roles } from "src/auth/decorator/roles.decorator";
 import { RolesGuard } from "src/auth/guards/roles.guards";
 
 
-@Controller('news')
+@Controller('news-letter')
 export class NewsController {
     
     constructor(private newsService: NewsService){}

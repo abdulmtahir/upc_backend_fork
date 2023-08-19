@@ -10,10 +10,10 @@ export class NewsService {
     constructor(@InjectRepository(NewsEntity) private readonly newsRepo: Repository<NewsEntity>){}
 
 
-    async createNews(image:string, newsDto:newsDto){
+    async createNews(newsDto:newsDto){
 
         const newsE = new NewsEntity()
-        newsE.image = image;
+        newsE.image = newsDto.image;
         newsE.article = newsDto.article;
         newsE.headline = newsDto.headline;
     
@@ -33,9 +33,9 @@ export class NewsService {
         return getAll;
     }
 
-    async updateNews(id:number, image:string, newsDto:newsDto){
+    async updateNews(id:number,  newsDto:newsDto){
         const newsE = new NewsEntity()
-        newsE.image = image;
+        newsE.image = newsDto.image,
         newsE.article = newsDto.article;
         newsE.headline = newsDto.headline;
 

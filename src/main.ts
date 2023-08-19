@@ -12,7 +12,7 @@ async function bootstrap() {
   // Enable CORS for the application
   app.enableCors();
 
-  await app.listen(7000);
+  await app.listen(3000);
 }
 
 bootstrap();

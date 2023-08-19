@@ -12,6 +12,13 @@ async function bootstrap() {
   // Enable CORS for the application
   app.enableCors();
 
+   // // Configure CORS to allow requests only from localhost:3000
+  // app.enableCors({
+  //   origin: 'http://localhost:3000',
+  //   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  //   credentials: true,
+  // });
+
   await app.listen(3000);
 }
 

@@ -9,6 +9,9 @@ export class NewsEntity{
     @PrimaryGeneratedColumn()
     id:number;
 
+    @Column()
+    statement: string;
+
     @Column({nullable:false})
     image:string;
 

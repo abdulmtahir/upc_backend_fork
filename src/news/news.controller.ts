@@ -21,20 +21,17 @@ export class NewsController {
   constructor(private readonly newsService: NewsService) {}
 
   @Post()
-  @UseInterceptors(
-    FileInterceptor('image', {
-      storage: diskStorage({
-        destination: 'images/news-images',
-        filename: editeFileName,
-      }),
-      fileFilter: imageFileFilter,
-    }),
-  )
-  async CreateNewsDto(
-    @UploadedFile() file: Express.Multer.File,
-    @Body() newsDto: newsDto,
-  ) {
-    return this.newsService.createNews(file.filename, newsDto);
+  // @UseInterceptors(
+  //   FileInterceptor('image', {
+  //     storage: diskStorage({
+  //       destination: 'images/news-images',
+  //       filename: editeFileName,
+  //     }),
+  //     fileFilter: imageFileFilter,
+  //   }),
+  // )
+  async CreateNewsDto(@Body() newsDto: newsDto,) {
+    return this.newsService.createNews(newsDto);
   }
 
   @Get(':id')
@@ -48,21 +45,17 @@ export class NewsController {
   }
 
   @Put(':id')
-  @UseInterceptors(
-    FileInterceptor('image', {
-      storage: diskStorage({
-        destination: 'images',
-        filename: editeFileName,
-      }),
-      fileFilter: imageFileFilter,
-    }),
-  )
-  updateNews(
-    @UploadedFile() file: Express.Multer.File,
-    @Param('id') id: number,
-    @Body() newsDto: newsDto,
-  ) {
-    this.newsService.updateNews(id, file.filename, newsDto);
+  // @UseInterceptors(
+  //   FileInterceptor('image', {
+  //     storage: diskStorage({
+  //       destination: 'images',
+  //       filename: editeFileName,
+  //     }),
+  //     fileFilter: imageFileFilter,
+  //   }),
+  // )
+  updateNews(@Param('id') id: number,@Body() newsDto: newsDto,) {
+    this.newsService.updateNews(id, newsDto);
   }
 
   @Delete(':id')

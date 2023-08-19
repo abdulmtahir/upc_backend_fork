@@ -3,7 +3,7 @@ import { Like} from "src/likes/entities/likes.entity";
 import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 
-@Entity('news')
+@Entity()
 export class NewsEntity{
 
     @PrimaryGeneratedColumn()

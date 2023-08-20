@@ -12,6 +12,6 @@ export class AuthController {
   @Roles(Role.Admin, Role.Super)
   @Post('/login')
   async login(@Request() req) {
-    return this.authService.login(req);
+    return this.authService.login(req.user);
   }
 }

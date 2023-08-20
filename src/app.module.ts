@@ -28,6 +28,7 @@ import { DonationOptionsModule } from './donation-options/donation-options.modul
 import { MissionModule } from './mission/mission.module';
 import { PromisesModule } from './about-us/promises.module';
 import { MotivationModule } from './motivation/motivation.module';
+import { AddressModule } from './address/address.module';
 
 @Module({
   imports: [
@@ -74,6 +75,7 @@ import { MotivationModule } from './motivation/motivation.module';
     DonationOptionsModule,
     PromisesModule,
     MotivationModule,
+    AddressModule
   ],
   controllers: [],
   providers: [],

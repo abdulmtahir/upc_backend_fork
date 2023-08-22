@@ -2,10 +2,7 @@ import { IsEmail, IsString } from "class-validator";
 
 export class CreateAddressDto {
     @IsString()
-    address_1: string;
-
-    @IsString()
-    address_2: string;
+    address: string;
 
     @IsEmail()
     email_1: string;

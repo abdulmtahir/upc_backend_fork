@@ -6,10 +6,7 @@ export class Address {
     id: number;
 
     @Column()
-    address_1: string;
-
-    @Column()
-    address_2: string;
+    address: string;
 
     @Column({unique: true})
     email_1: string;

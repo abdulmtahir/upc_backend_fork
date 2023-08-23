@@ -48,7 +48,7 @@ export class MembershipEntity {
   state: string;
 
   @CreateDateColumn({ type: 'timestamp'})
-    created_at: Date;
+    created_at: Date; 
 
   @UpdateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})
   updated_at: Date;

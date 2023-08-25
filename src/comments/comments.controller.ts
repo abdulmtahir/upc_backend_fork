@@ -6,8 +6,8 @@ import { commentDto } from './dto/commentDto';
 export class CommentsController {
     constructor(private readonly commentService: CommentsService){}
 
-    @Post(':id')
-    createComment(@Param('id') id:number,@Body('comment') comment: string){
+    @Post(":id")
+    createComment(@Param('id') id:number, @Body('comment') comment: string){
         return this.commentService.creatComment(id, comment)
     }
 

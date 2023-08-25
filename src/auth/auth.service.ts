@@ -25,6 +25,7 @@ export class AuthService {
       access_token: this.jwtService.sign(payload),
     };
   }
+
 }
 
 // async validateUser(email: string, password: string): Promise<any> {

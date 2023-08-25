@@ -1,4 +1,4 @@
-import { Body, Controller, Param, Post } from '@nestjs/common';
+import { Body, Controller, Param, Post, Get } from '@nestjs/common';
 import { LikesService } from './likes.service';
 import { likeDto } from './dto/likeDto';
 
@@ -9,6 +9,11 @@ export class LikesController {
 
     @Post(':id')
     createComment(@Param('id') id:number,@Body('user_id') user_id: string){
-        return this.likeService.creatComment(id, user_id)
+        return this.likeService.createLike(id, '1')
+    }
+
+    @Get()
+    geAll(){
+        return this.likeService.getAll()
     }
 }

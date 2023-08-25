@@ -4,7 +4,7 @@ import { Column, CreateDateColumn, Entity, ManyToMany, ManyToOne, PrimaryGenerat
 
 
 @Entity('likes')
-export class Like{
+export class LikeRepository{
     @PrimaryGeneratedColumn()
     id:number;
 

@@ -8,6 +8,6 @@ export class CreateGoalDto {
     @IsNotEmpty()
     image: string;
   
-    @IsNumber()
+    @IsString()
     title: string;
 }  

@@ -18,7 +18,11 @@ export class MissionService {
   }
 
   async getAllMission(): Promise<Mission[]> {
-    const missions = await this.missionRepository.find();
+    const missions = await this.missionRepository.find({
+      order: { 
+        id: "ASC"
+      }
+    });
     try {
       return missions;
     } catch (error) {

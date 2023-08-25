@@ -18,7 +18,11 @@ export class MenuService {
   }
 
   async getMenu(): Promise<Menu[]> {
-    const menus = await this.menuRepository.find();
+    const menus = await this.menuRepository.find({
+      order: { 
+        id: "ASC"
+      }
+    });
     try {
       return menus;
     } catch (error) {

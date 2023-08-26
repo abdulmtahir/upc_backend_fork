@@ -18,7 +18,11 @@ export class GalleryService {
   }
 
   findAll(): Promise<Gallery[]> {
-    return this.galleryRepository.find();
+    return this.galleryRepository.find({
+      order: { 
+        id: "ASC"
+      }
+    });
   }
 
   // update(updateGalleryDto: UpdateGalleryDto, galleryId: number){

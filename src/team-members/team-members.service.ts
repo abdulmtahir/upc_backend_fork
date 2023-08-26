@@ -35,7 +35,11 @@ export class TeamMembersService{
     }
 
     async getAllTeam(){
-        const getAll = await this.teamRepo.find();
+        const getAll = await this.teamRepo.find({
+            order: { 
+              id: "ASC"
+            }
+          });
         if(!getAll){
             throw new NotFoundException('Empty');
         }else{

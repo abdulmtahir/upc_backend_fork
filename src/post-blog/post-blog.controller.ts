@@ -1,4 +1,4 @@
-import { Body, Controller, Get, NotFoundException, Post, Param, Put, Delete, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, NotFoundException, Post, Param, Put, Delete, UseGuards, Patch } from '@nestjs/common';
 import { PostBlogService } from './post-blog.service';
 import { BlogService } from 'src/blog/blog.service';
 import { Role } from 'src/register-admin/role.enum';
@@ -46,7 +46,7 @@ export class PostBlogController {
 
     @UseGuards(JwtAuthGuard, RolesGuard)
     @Roles(Role.Admin, Role.Super)
-    @Put(':id')
+    @Patch(':id')
     updatePostById(@Param('id') id:number,@Body() postDto: CreatePostBlogDto){
         return this.postService.updatePostById(id, postDto)
     }

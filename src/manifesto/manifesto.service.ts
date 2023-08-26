@@ -15,7 +15,11 @@ export class ManifestoService {
   }
 
   async findAll(): Promise<Manifesto[]> {
-    const  manifesto = await this.manifestoRepository.find();
+    const  manifesto = await this.manifestoRepository.find({
+      order: { 
+        id: "ASC"
+      }
+    });
     try {
       return manifesto
     } catch (error) {

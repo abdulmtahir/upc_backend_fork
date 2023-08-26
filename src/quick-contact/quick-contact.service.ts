@@ -13,20 +13,28 @@ export class QuickContactService {
     private contactRepository: Repository<QuickContact>,
   ){}
 
-  create(createQuickContactDto: CreateQuickContactDto) {
+  create(createQuickContactDto: CreateQuickContactDto): Promise<QuickContact> {
     return this.contactRepository.save(createQuickContactDto);
   }
 
-  findAll() {
-    return `This action returns all quickContact`;
+  findAll(): Promise<QuickContact[]> {
+    return this.contactRepository.find({
+      order: { 
+        id: "ASC"
+      }
+    });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} quickContact`;
+  findOne(id: number): Promise<QuickContact> {
+    return this.contactRepository.findOne({where: {id}});
   }
 
   update(id: number, updateQuickContactDto: UpdateQuickContactDto) {
     return this.contactRepository.update(id, updateQuickContactDto);
   }
 
+
+  delete(id:number) {
+    return  this.contactRepository.delete(id)
+}
 }

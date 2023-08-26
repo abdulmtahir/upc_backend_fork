@@ -30,7 +30,11 @@ export class NewsService {
     }
 
     async getAll(){
-        const getAll = await this.newsRepo.find();
+        const getAll = await this.newsRepo.find({
+            order: { 
+              id: "ASC"
+            }
+          });
         return getAll;
     }
 

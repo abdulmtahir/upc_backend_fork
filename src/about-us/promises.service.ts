@@ -19,7 +19,11 @@ export class PromisesService {
   }
 
   async getAllPromises(): Promise<OurPromises[]> {
-    const promises = await this.promisesRepo.find();
+    const promises = await this.promisesRepo.find({
+      order: { 
+        id: "ASC"
+      }
+    });
     try {
       return promises;
     } catch (error) {

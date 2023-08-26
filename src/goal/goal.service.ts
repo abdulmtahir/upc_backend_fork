@@ -18,7 +18,11 @@ export class GoalService {
   }
 
   async getAllGoals(): Promise<Goal[]> {
-    const goals = await this.goalRepository.find();
+    const goals = await this.goalRepository.find({
+      order: { 
+        id: "ASC"
+      }
+    });
     try {
       return goals;
     } catch (error) {
@@ -35,18 +39,31 @@ export class GoalService {
     }
   }
 
+  // async updateGoal(id: number, updateGoalDto: UpdateGoalDto): Promise<Goal> {
+  //   const goalToUpdate = await this.goalRepository.findOne({ where: { id } });
+  //   if (!goalToUpdate) {
+  //     throw new Error('Goal not found.');
+  //   }
+
+  //   // Update the fields from the DTO
+  //   Object.assign(goalToUpdate, updateGoalDto);
+  //   return this.goalRepository.save(goalToUpdate);
+  // }
+
   async updateGoal(id: number, updateGoalDto: UpdateGoalDto): Promise<Goal> {
     const goalToUpdate = await this.goalRepository.findOne({ where: { id } });
     if (!goalToUpdate) {
-      throw new Error('Goal not found.');
+      throw new NotFoundException('Goal not found');
     }
 
     // Update the fields from the DTO
     Object.assign(goalToUpdate, updateGoalDto);
-    return this.goalRepository.save(goalToUpdate);
+    await this.goalRepository.save(goalToUpdate);
+
+    return goalToUpdate; // Return the updated goal
   }
 
-  async deleteGoal(id: number): Promise<void> {
+  async deleteGoal(id: number) {
     await this.goalRepository.delete(id);
   }
 }

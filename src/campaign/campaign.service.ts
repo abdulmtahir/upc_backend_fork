@@ -17,7 +17,11 @@ export class CampaignService {
   }
 
   findAll(): Promise<Campaign[]> {
-    const campaigns = this.campaignRepo.find();
+    const campaigns = this.campaignRepo.find({
+      order: { 
+        id: "ASC"
+      }
+    });
     try {
       return campaigns;
     } catch (error) {

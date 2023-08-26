@@ -14,7 +14,11 @@ export class AddressService {
     ){}
 
     get(): Promise<Address[]> {
-        return  this.addressRepo.find();
+        return  this.addressRepo.find({
+            order: { 
+              id: "ASC"
+            }
+          });
     }
 
     create(createAddressDto: CreateAddressDto) {

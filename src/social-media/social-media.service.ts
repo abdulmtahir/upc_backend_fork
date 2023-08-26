@@ -15,7 +15,11 @@ export class SocialMediaService {
   }
 
   async findAll(): Promise<SocialMedia[]> {
-    const social = await this.socialRepository.find()
+    const social = await this.socialRepository.find({
+      order: { 
+        id: "ASC"
+      }
+    })
     return social;
   }
 

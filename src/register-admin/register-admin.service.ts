@@ -18,7 +18,11 @@ export class RegisterAdminService {
   }
 
   async getAllAdmin(): Promise<Admin[]> {
-    const admins = await this.adminRepository.find();
+    const admins = await this.adminRepository.find({
+      order: { 
+        id: "ASC"
+      }
+    });
     try {
       return admins;
     } catch (error) {

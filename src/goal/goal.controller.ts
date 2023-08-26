@@ -7,6 +7,8 @@ import {
   Post,
   Patch,
   UseGuards,
+  InternalServerErrorException,
+  NotFoundException,
 } from '@nestjs/common';
 import { GoalService } from './goal.service';
 import { Goal } from './entity/goal-entity';
@@ -38,20 +40,42 @@ export class GoalController {
     return this.goalService.getGoalById(id);
   }
 
-  @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles(Role.Admin, Role.Super)
-  @Patch(':id')
-  updateGoal(
-    @Param('id') id: number,
-    @Body() updateGoalDto: UpdateGoalDto,
-  ): Promise<Goal> {
-    return this.goalService.updateGoal(id, updateGoalDto);
-  }
+  // @UseGuards(JwtAuthGuard, RolesGuard)
+  // @Roles(Role.Admin, Role.Super)
+  // @Patch(':id')
+  // updateGoal(
+  //   @Param('id') id: number,
+  //   @Body() updateGoalDto: UpdateGoalDto,
+  // ): Promise<Goal> {
+  //   return this.goalService.updateGoal(id, updateGoalDto);
+  // }
+
 
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(Role.Admin, Role.Super)
+  @Patch(':id')
+  async updateGoal(
+    @Param('id') id: number,
+    @Body() updateGoalDto: UpdateGoalDto,
+  ): Promise<Goal> {
+    try {
+      const updatedGoal = await this.goalService.updateGoal(id, updateGoalDto);
+      if (!updatedGoal) {
+        throw new NotFoundException(`Goal with id ${id} not found`);
+      }
+      return updatedGoal;
+    } catch (error) {
+      // Handle other potential errors (e.g., database errors)
+      throw new InternalServerErrorException(error.message);
+    }
+  }
+
+
+
+  // @UseGuards(JwtAuthGuard, RolesGuard)
+  // @Roles(Role.Admin, Role.Super)
   @Delete(':id')
-  deleteGoal(@Param('id') id: number): Promise<void> {
+  deleteGoal(@Param('id') id: number) {
     return this.goalService.deleteGoal(id);
   }
 }

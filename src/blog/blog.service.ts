@@ -18,7 +18,11 @@ export class BlogService {
 
     // method to fetch all the category
     async getAllBlogCategory(){
-        const blogCategory = await this.createB.find();
+        const blogCategory = await this.createB.find({
+            order: { 
+              id: "ASC"
+            }
+          });
         
         try{
             return blogCategory

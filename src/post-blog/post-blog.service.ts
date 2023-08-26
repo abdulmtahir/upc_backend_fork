@@ -29,8 +29,12 @@ export class PostBlogService {
     }
 
     async getAllPost(){
-        const getAll = await this.blogRe.find();
-            return getAll;
+        const getAll = await this.blogRe.find({
+            order: { 
+              id: "ASC"
+            }
+          });
+        return getAll;
         
     }
 

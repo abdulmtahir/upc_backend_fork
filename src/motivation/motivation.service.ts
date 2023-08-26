@@ -18,7 +18,11 @@ export class MotivationService {
   }
 
   async getAllMotivation(): Promise<Motivation[]> {
-    const motivations = await this.motivationRepo.find();
+    const motivations = await this.motivationRepo.find({
+      order: { 
+        id: "ASC"
+      }
+    });
     try {
       return motivations;
     } catch (error) {

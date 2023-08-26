@@ -15,7 +15,11 @@ export class UpperNavService {
   }
 
   async findAll(): Promise<UpperNav[]> {
-    const nav = await this.upperNavRepository.find();
+    const nav = await this.upperNavRepository.find({
+      order: { 
+        id: "ASC"
+      }
+    });
     return nav;
   }
 

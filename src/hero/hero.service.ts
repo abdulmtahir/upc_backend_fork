@@ -19,7 +19,11 @@ export class HeroService {
   }
 
   async findAll(): Promise<Hero[]> {
-    const heros = await this.heroRepository.find();
+    const heros = await this.heroRepository.find({
+      order: { 
+        id: "ASC"
+      }
+    });
     return heros;
   }
 

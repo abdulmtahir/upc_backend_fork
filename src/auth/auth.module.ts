@@ -18,7 +18,7 @@ import { LocalAuthGuard } from './guards/local.guard';
     JwtModule.register({
       global: true,
       secret: jwtConstant.secret,
-      signOptions: { expiresIn: '3m' },
+      signOptions: { expiresIn: '1h' },
     }),
   ],
   controllers: [AuthController],
